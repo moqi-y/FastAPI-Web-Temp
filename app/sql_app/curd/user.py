@@ -12,8 +12,8 @@ session = Session()
 
 
 # 插入数据
-def insert_user(name, age):
-    user = User(name=name, age=age)
+def insert_user(username, password):
+    user = User(username=username, password=password)
     try:
         session.add(user)
         session.commit()
@@ -40,6 +40,7 @@ def get_user(user_id):
 def get_all_users():
     try:
         users = session.query(User).all()
+        print("users", users)
         return users
     except Exception as e:
         print(f"Error: {e}")
@@ -49,12 +50,12 @@ def get_all_users():
 
 
 # 测试代码
-if __name__ == '__main__':
-    user_list = []
-    for item in get_all_users():
-        user_list.append({
-            "id": item.id,
-            "name": item.name,
-            "age": item.age
-        })
-    print("user_list", user_list)
+# if __name__ == '__main__':
+    # user_list = []
+    # for item in get_all_users():
+    #     user_list.append({
+    #         "id": item.id,
+    #         "username": item.username,
+    #     })
+    # print("user_list", user_list)
+    # insert_user("admin", "123456")

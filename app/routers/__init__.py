@@ -14,7 +14,7 @@ def router_config(app):
 
     app.include_router(
         item.router,
-        prefix="/item",  # 路径名
-        tags=["item"],  # 文档标签名
+        prefix="/role",  # 路径名
+        tags=["role"],  # 文档标签名
         responses={418: {"msg": "未知错误"}},
     )
