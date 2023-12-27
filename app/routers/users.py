@@ -12,7 +12,7 @@ class User(BaseModel):
     password: str
 
 
-@router.get("/list", tags=["users"])
+@router.get("/list", tags=["users"],summary="获取用户列表")
 async def read_users():
     user_list = []
     for item in get_all_users():
@@ -28,7 +28,7 @@ async def read_users():
 
 
 # 新增用户
-@router.post("/add", tags=["users"])
+@router.post("/add", tags=["users"],summary="新增用户")
 async def add_user(user: User):
     if insert_user(user.name, user.password):
         return {"code": ResponseSuccess.code, "msg": ResponseSuccess.message}
