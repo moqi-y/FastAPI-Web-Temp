@@ -9,8 +9,15 @@
 │    │   ├── __init__.py  # 使「routers」成为一个「Python 子包」
 │    │   ├── items.py     # 「items」子模块，例如 import app.routers.items
 │    │   └── users.py     # 「users」子模块，例如 import app.routers.users
-│    └── internal         # 「internal」是一个「Python 子包」
-│        ├── __init__.py  # 使「internal」成为一个「Python 子包」
-│        └── admin.py     # 「admin」子模块，例如 import app.internal.admin
-│   └── static           # 静态文件
+│    └── middleware
+│    │   ├── __init__.py
+│    │   └── cors.py      # 跨域配置
+│    └──sql_app           # 数据库配置
+│    │   ├── __init__.py
+│        │   └── models.py    # 数据库模型
+│        └── database.py   # 数据库连接
+│    └──utils           # 工具函数
+│    │   ├── __init__.py
+│    │   └── status_code.py # 状态码
+
 ```
