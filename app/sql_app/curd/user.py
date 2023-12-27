@@ -17,6 +17,7 @@ def insert_user(username, password):
     try:
         session.add(user)
         session.commit()
+        return True
     except Exception as e:
         print(f"Error: {e}")
         session.rollback()

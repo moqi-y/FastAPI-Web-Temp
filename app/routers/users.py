@@ -31,6 +31,6 @@ async def read_users():
 @router.post("/add", tags=["users"])
 async def add_user(user: User):
     if insert_user(user.name, user.password):
-        return {"code": 200, "msg": "success"}
-
-    return {"code": 200, "msg": "success"}
+        return {"code": ResponseSuccess.code, "msg": ResponseSuccess.message}
+    else:
+        return {"code": ResponseError.code, "msg": ResponseError.message}
