@@ -1,6 +1,6 @@
 import uvicorn
-from fastapi import FastAPI
-
+from fastapi import FastAPI,status
+from app.utils.status_code import *
 import config
 from app.middleware import cors
 from app.routers import router_config
@@ -19,12 +19,14 @@ cors.cors_config(app)
 router_config(app)
 
 
+# 连通测试
 @app.get("/")
 async def root():
     # 读取.env中的配置
     print(config.APP_NAME)
     return {
-        "message": "Hello Bigger Applications!",
+        "code": ResponseSuccess.code,
+        "message": ResponseSuccess.message,
         "data": {
             "appName": config.APP_NAME,
             "appVersion": config.APP_VERSION
