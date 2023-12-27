@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI,status
+from fastapi import FastAPI
 from app.utils.status_code import *
 import config
 from app.middleware import cors
@@ -20,7 +20,7 @@ router_config(app)
 
 
 # 连通测试
-@app.get("/")
+@app.get("/ping", summary="连通测试", description="测试连通性", tags=["测试"])
 async def root():
     # 读取.env中的配置
     print(config.APP_NAME)
