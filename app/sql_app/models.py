@@ -10,6 +10,8 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     username = Column(String(50))
     password = Column(String(255))
+    email = Column(String(100))
+    mobile = Column(String(11))
 
 
 # 定义role表模型

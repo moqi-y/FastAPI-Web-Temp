@@ -11,6 +11,11 @@ class ResponseError:
     message = "操作失败"
 
 
+class ResponseUserNotExist(ResponseError):
+    code = status.HTTP_404_NOT_FOUND
+    message = "用户不存在"
+
+
 class ResponseException(ResponseError):
     code = status.HTTP_400_BAD_REQUEST
     message = "操作异常"
@@ -64,4 +69,3 @@ class ResponseNotImplemented(ResponseError):
 class ResponseServiceUnavailable(ResponseError):
     code = status.HTTP_503_SERVICE_UNAVAILABLE
     message = "服务不可用"
-
