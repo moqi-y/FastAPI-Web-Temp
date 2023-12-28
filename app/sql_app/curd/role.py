@@ -12,10 +12,11 @@ session = Session()
 
 
 # 查询所有权限
-def get_all_permissions():
+def get_all_roles():
     try:
-        permissions = session.query(Role).all()
-        return permissions
+        roles = session.query(Role).all()
+        return [{"id": role.id, "name": role.name, "permissions": role.permissions, "remark": role.remark} for role in
+                roles]
     except Exception as e:
         print(f"Error: {e}")
         return []
@@ -24,11 +25,12 @@ def get_all_permissions():
 
 
 # 新增权限
-def insert_permission(name, permissions, remark=""):
+def insert_role(name, permissions, remark=""):
     perm = Role(name=name, permissions=permissions, remark=remark)
     try:
         session.add(perm)
         session.commit()
+        return True
     except Exception as e:
         print(f"Error: {e}")
         session.rollback()
@@ -36,8 +38,7 @@ def insert_permission(name, permissions, remark=""):
         session.close()
 
 
-# 调用函数获取所有权限
+# 调用函数新增权限
 if __name__ == '__main__':
-    all_permissions = get_all_permissions()
-    for permission in all_permissions:
-        print(permission.name)
+    #     insert_permission("admin", "查看用户,编辑用户,删除用户", "管理员角色权限")
+    print(get_all_roles())

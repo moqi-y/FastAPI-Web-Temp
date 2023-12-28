@@ -1,5 +1,5 @@
 from app.dependencies import get_query_token, get_token_header
-from app.routers import users, item
+from app.routers import users, roles
 from fastapi import Depends
 
 
@@ -13,7 +13,7 @@ def router_config(app):
     )
 
     app.include_router(
-        item.router,
+        roles.router,
         prefix="/role",  # 路径名
         tags=["role"],  # 文档标签名
         responses={418: {"msg": "未知错误"}},
