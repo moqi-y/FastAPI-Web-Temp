@@ -21,3 +21,23 @@
 │    │   └── status_code.py # 状态码
 
 ```
+
+## 安装依赖
+**python版本：** 3.10.11
+
+```bash
+pip install -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com -r requirements.txt
+```
+## 运行
+```bash
+uvicorn app.main:app --reload
+```
+## 接口文档
+http://127.0.0.1:8000/docs
+
+## pip国内源
+- 阿里云：http://mirrors.aliyun.com/pypi/simple/
+- 中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/
+- 华中理工大学：http://pypi.hustunique.com/
+- 山东理工大学：http://pypi.sdutlinux.org/
+- 豆瓣：http://pypi.douban.com/simple/
