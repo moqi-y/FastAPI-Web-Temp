@@ -4,6 +4,19 @@ from app.utils.status_code import *
 import config
 from app.middleware import cors
 from app.routers import router_config
+from fastapi import applications
+from fastapi.openapi.docs import get_swagger_ui_html
+
+
+def swagger_monkey_patch(*args, **kwargs):
+    return get_swagger_ui_html(
+        *args, **kwargs,
+        swagger_js_url="https://cdn.bootcdn.net/ajax/libs/swagger-ui/5.1.0/swagger-ui-bundle.min.js",
+        swagger_css_url="https://cdn.bootcdn.net/ajax/libs/swagger-ui/5.1.0/swagger-ui.min.css"
+    )
+
+
+applications.get_swagger_ui_html = swagger_monkey_patch
 
 app = FastAPI(
     title="FastAPI",
